@@ -8,12 +8,12 @@ def main():
 
     while True:
         error, frame = video.read()
-        height, width = frame.shape[:2]
-        size = 200
-        centre_x = width // 2 - size // 2
-        centre_y = height // 2 - size // 2
-
+        HEIGHT, WIDTH = frame.shape[:2]
+        SIZE = 200
+        centre_x = WIDTH // 2 - SIZE // 2
+        centre_y = HEIGHT // 2 - SIZE // 2
         is_inside = False
+        
         frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(frame_gray, (7, 7), 0)
         thresh = cv2.adaptiveThreshold(
@@ -47,8 +47,8 @@ def main():
                 if (
                     x >= centre_x
                     and y >= centre_y
-                    and x + w <= centre_x + size
-                    and y + h <= centre_y + size
+                    and x + w <= centre_x + SIZE
+                    and y + h <= centre_y + SIZE
                 ):
                     is_inside = True
 
@@ -60,7 +60,7 @@ def main():
         cv2.putText(
             frame,
             f"{is_inside}",
-            (width - 100, 50),
+            (WIDTH - 100, 50),
             cv2.FONT_HERSHEY_SIMPLEX,
             0.8,
             text_color,
@@ -70,7 +70,7 @@ def main():
         cv2.rectangle(
             frame,
             (centre_x, centre_y),
-            (centre_x + size, centre_y + size),
+            (centre_x + SIZE, centre_y + SIZE),
             (0, 0, 255),
             2,
         )
