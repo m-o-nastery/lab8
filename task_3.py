@@ -76,7 +76,7 @@ def main():
         )
 
         cv2.imshow("video", frame)
-        cv2.imshow("thresh", thresh)
+        # cv2.imshow("thresh", thresh)
 
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break

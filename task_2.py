@@ -11,8 +11,8 @@ def main():
         SIZE = 200
         centre_x = WIDTH // 2 - SIZE // 2
         centre_y = HEIGHT // 2 - SIZE // 2
-
         is_inside = False
+        
         frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(frame_gray, (7, 7), 0)
         thresh = cv2.adaptiveThreshold(
@@ -60,7 +60,7 @@ def main():
         )
 
         cv2.imshow("video", frame)
-        cv2.imshow("thresh", thresh)
+        # cv2.imshow("thresh", thresh)
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break
 
