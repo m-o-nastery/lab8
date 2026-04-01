@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 
-if __name__ == "__main__":
+def main():
     video = cv2.VideoCapture(0)
 
     while True:
@@ -63,3 +63,6 @@ if __name__ == "__main__":
         cv2.imshow("thresh", thresh)
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break
+
+if __name__ == "__main__":
+    main()
